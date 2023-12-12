@@ -1,31 +1,11 @@
-import React, { useState, memo, useRef } from "react";
-import { TaskData, taskpriority } from "../Task/types";
+import React, { useState, memo } from "react";
+import { TaskData } from "../Task/types";
 import { SortTypes } from "../../hooks/types";
 import Task from "../Task";
 import Form from "../Form";
 import { useTasksList } from "../../hooks/useTasksList";
 import { FormTypes } from "../Form/types";
 import { ViewType } from "./types";
-
-function randomNumberInRange(): taskpriority {
-  // 👇️ get number between min (inclusive) and max (inclusive)
-  let min = 1;
-  let max = 6;
-  let num = Math.floor(Math.random() * (max - min + 1)) + min;
-  if (num >= 5) {
-    return 5;
-  }
-  if (num <= 1) {
-    return 1;
-  }
-  if (num === 2) {
-    return 2;
-  }
-  if (num === 3) {
-    return 3;
-  }
-  return 4;
-}
 
 function Main() {
   const { taskslist, count, addTask, updateTask, doneTask, sortTasks } =
